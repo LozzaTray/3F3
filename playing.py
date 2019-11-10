@@ -20,14 +20,24 @@ def ksdensity(data, width=0.3):
         return np.array(pdf)
     return ksd
 
+N = 1000
+bins = 30
 
 # Plot normal distribution
-fig, ax = plt.subplots(2)
+fig, ax = plt.subplots(2, sharex='col')
 x = np.random.randn(1000)  # randn is standard normal distribution
-ax[0].hist(x, bins=30)  # number of bins
-ks_density = ksdensity(x, width=0.4)
 x_values = np.linspace(-5., 5., 100)
+
+ks_density = ksdensity(x, width=0.4)
+scale = lambda el: el * N / bins
+
+ax[0].set_title('Histogram of normal distribution (N={})'.format(N))
+ax[0].hist(x, bins=bins, density=True)  # number of bins
+ax[0].plot(x_values, n_pdf(x_values), linestyle='dashed')
+
+ax[1].set_title('Smoothed curve')
 ax[1].plot(x_values, ks_density(x_values))
+ax[1].plot(x_values, n_pdf(x_values), linestyle='dashed')
 
 # Plot uniform distribution
 fig2, ax2 = plt.subplots(2)
