@@ -1,24 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-def n_pdf(x, mu=0., sigma=1.):
-    """normal (gaussian) pdf"""
-    u = (x - mu) / abs(sigma)
-    y = (1 / (np.sqrt(2 * np.pi) * abs(sigma)))
-    y *= np.exp(-u * u / (2 * (sigma ** 2)))
-    return y
-
-
-def ksdensity(data, width=0.3):
-    """Returns kernel smoothing function from data points in data"""
-
-    def ksd(x_axis):
-
-        prob = [n_pdf(x_i, data, width) for x_i in x_axis]
-        pdf = [np.average(pr) for pr in prob]  # each row is one x value
-        return np.array(pdf)
-    return ksd
+from ksdensity import ksdensity
+from pdfs import n_pdf
 
 N = 1000
 bins = 30
