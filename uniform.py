@@ -9,7 +9,6 @@ bins = 30
 
 img_dir = "/mnt/c/Users/ltray/Documents/Cambridge/3F3/img/"
 
-# Plot normal distribution
 x = np.random.rand(1000)  # uniform dist [0,1]
 x_values = np.linspace(-0.2, 1.2, 1000)
 
