@@ -25,7 +25,7 @@ plt.xlabel('x')
 plt.ylabel('Normalised frequency')
 plt.legend()
 
-plt.savefig(img_dir + "gaussian_hist.png")
+#plt.savefig(img_dir + "gaussian_hist.png")
 
 fig = plt.figure()
 plt.title('Kernel smoothed gaussian distribution (N={}, sigma={})'.format(N, sigma))
@@ -36,5 +36,5 @@ plt.xlabel('x')
 plt.ylabel('probability density')
 plt.legend()
 
-plt.savefig(img_dir + "gaussian_ksd.png")
+#plt.savefig(img_dir + "gaussian_ksd.png")
 plt.show()
